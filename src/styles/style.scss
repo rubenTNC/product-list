@@ -3,6 +3,7 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    position: relative;
 }
 
 ul {
@@ -16,16 +17,7 @@ ul {
     margin: auto;
 }
 
-.game {
-    max-width: 500px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-}
 
-.squre {
-    height: 50px;
-}
 
 img {
     max-width: 100%;

@@ -6,8 +6,8 @@ export default class Product {
         this.products = products;
         this.name = name;
         this.price = price;
-        this.onClick = this.onClick.bind(this)
         this.product = createElem("ul", "product");
+        this.onClick = this.onClick.bind(this)
         this.product.addEventListener("click", this.onClick)
 
     }
@@ -35,13 +35,12 @@ export default class Product {
         this.product.insertAdjacentHTML("afterBegin", this.toHTML())
     }
     delete() {
-        const product = this.name;
         const productIndex = productList.findIndex(item => item.name === this.name)
         productList.splice(productIndex, 1)
-        this.products.update()
+        this.products.getList().removeChild(event.target.closest(".product"))
     }
     update() {
-        console.log("хер")
+        
     }
     onClick(event) {
         const action = event.target.dataset.action;
