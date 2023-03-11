@@ -15,7 +15,7 @@ export default class Product extends DomListener {
         </div>
         <div class="control">
             <button >
-                <span class="material-symbols-outlined" data-action="update">
+                <span class="material-symbols-outlined" data-action="formСall">
                     update
                 </span>
             </button>
@@ -32,11 +32,6 @@ export default class Product extends DomListener {
     }
     update() {
         
-    }
-    render() {
-        this.$root.insertAdjacentHTML("afterBegin", this.toHTML());
-        return this;
-    }
-   
+    }   
 
 }

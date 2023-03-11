@@ -1,14 +1,16 @@
 import createElem from "../core/createElem";
 import DomListener from "../core/DomListener";
-import { productList } from "../core/productList";
+import FormProduct from "./FormProduct";
 import Product from "./Product";
 
-export default class ProductList extends DomListener{
+
+export default class ProductList extends DomListener {
     static className = "products"
-    constructor(selector, title, $root) {
+    constructor(selector, title, $root, productsList) {
         super($root)
         this.$selector = selector;
         this.title = title;
+        this.productsList = productsList;
     }
     toHTML() {
         return `
@@ -21,26 +23,38 @@ export default class ProductList extends DomListener{
         <ul class="list"></ul>
         `
     }
-    render() {
+    add() {
         this.$selector.insertAdjacentElement("afterBegin", this.$root);
-        this.$root.insertAdjacentHTML("afterBegin", this.toHTML());
+        this.render()
         return this
     }
+    getList() {
+        return this.$root.querySelector(".list")
+    }
+    addProduct(name, price){
+        const $el = createElem("div", Product.className);
+        const product = new Product(name, price, $el);
+        this.getList().insertAdjacentElement("beforeEnd", $el)
+        product.render(product.toHTML())
+        product.initAddEventListener()
+
+    }
     addProducts() {
-        const list = this.$root.querySelector(".list")
-        productList.forEach((item) => {
-            const $el = createElem("div", Product.className);
-            list.insertAdjacentElement("afterBegin", $el)
-            const el = new Product(item.name, item.price, $el);
-            el.render()
-            el.initAddEventListener()
+        this.productsList.forEach((item) => {
+            this.addProduct(item.name, item.price)
         })
     }
     create() {
-        
+        // const $el = createElem("div", FormProduct.className);
+        // const form = new FormProduct($el)
+        // this.$selector.insertAdjacentElement("beforeEnd", $el)
+        // form.render(form.toHTML()).initAddEventListener()
+        // const isFormSave = form.save()
+        // console.log(isFormSave)
     }
+
     start() {
-        this.render()
+        this.add()
         this.addProducts()
         return this
     }
