@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form class="modal">
+        <span class="material-symbols-outlined modal-close" data-action="close">
+            close
+        </span>
+        <div class="modal__item">
+            <label for="formName" class="modal__label">Название</label>
+            <input type="text" id="forName" name="name" class="modal__input">
+        </div>
+        <div class="modal__item">
+            <label for="formPrice" class="modal__label">Цена</label>
+            <input type="text" id="formEmail" name="price" class="modal__input">
+        </div>
+        <div class="btns">
+            <button class="modal__btn" data-action="save">Сохранить</button>
+            <button class="modal__btn" data-action="close">Отмена</button>
+        </div>
+    </form>
+    <div class="header">
+        <h3 class="title">${this.title}</h3>
+        <button>
+            <span class="material-symbols-outlined" data-action="create">add_circle</span>
+        </button>
+    </div>
+    <ul class="list"></ul>
+    
+
+    <h4 class="name">${this.name}</h4>
+            <div class="info">
+                <div class="price">${this.price}</div>
+            </div>
+            <div class="control">
+                <button >
+                    <span class="material-symbols-outlined" data-action="update">
+                        update
+                    </span>
+                </button>
+                <button>
+                    <span class="material-symbols-outlined" data-action="delete">
+                        delete
+                    </span>
+                </button>
+            </div>
+</body>
+</html>

@@ -1,8 +1,8 @@
-import FormProduct from "./components/formProduct"
-import Products from "./components/Products"
+import ProductList from "./components/ProductList"
+import createElem from "./core/createElem"
 
 const app = document.querySelector(".app")
 
-export const products = new Products(app, "Товары").start()
+const $el = createElem("div", ProductList.className)
 
-
+const inProductList = new ProductList(app, "Продукты", $el).start().initAddEventListener()
